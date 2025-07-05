@@ -87,13 +87,13 @@ O site é uma **Multi-Page Application (MPA)** com uma estrutura de arquivos cen
 
 ## 📸 Capturas de Tela
 
-_Substitua os links abaixo pelas URLs das suas capturas de tela._
+## Print Desktop 
+<img width="1913" height="1075" alt="Image" src="https://github.com/user-attachments/assets/b1f3ec08-467c-45e2-8f5f-b9b7da54e2cf" />
 
-| Página Inicial (Desktop) | Menu (Mobile) | Validação do Formulário |
-| :----------------------: | :-----------: | :---------------------: |
-|                          |               |                         |
+## Print Mobile
 
----
+<img width="393" height="862" alt="Image" src="https://github.com/user-attachments/assets/1425c9b9-74ec-450c-91dc-093cd16a5039" />
+
 
 ## 🏁 Como Executar
 
@@ -122,3 +122,4 @@ Outro aprendizado foi a modularização do código JavaScript, garantindo que sc
 ## 📧 Contato
 
 Leonardo Roeda - LinkedIn - GitHub
+leonardo99.roeda@gmail.com
