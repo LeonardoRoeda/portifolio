@@ -2,7 +2,6 @@
 
 <img width="1913" height="1075" alt="Image" src="https://github.com/user-attachments/assets/b1f3ec08-467c-45e2-8f5f-b9b7da54e2cf" />
 
-
 Este é um website de portfólio pessoal desenvolvido como parte da avaliação da disciplina de Programação Front-End. O projeto consiste em um site responsivo e interativo de 4 páginas, construído com HTML5, CSS3 e JavaScript puro, demonstrando a aplicação prática dos conceitos fundamentais do desenvolvimento web.
 
 **Visite o site:** [https://github.com/LeonardoRoeda/portifolio]
@@ -86,8 +85,6 @@ O site é uma **Multi-Page Application (MPA)** com uma estrutura de arquivos cen
 ---
 
 ## 📸 Capturas de Tela
-
-_Substitua os links abaixo pelas URLs das suas capturas de tela._
 
 | Página Inicial (Desktop) | Menu (Mobile) | Validação do Formulário |
 | :----------------------: | :-----------: | :---------------------: |
