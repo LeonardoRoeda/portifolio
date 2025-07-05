@@ -86,11 +86,9 @@ O site é uma **Multi-Page Application (MPA)** com uma estrutura de arquivos cen
 
 ## 📸 Capturas de Tela
 
-| Página Inicial (Desktop) | Menu (Mobile) | Validação do Formulário |
-| :----------------------: | :-----------: | :---------------------: |
-|                          |               |                         |
-
----
+| Página Inicial (Desktop) | Visualização (Mobile) |
+| :----------------------: | :-------------------: |
+| <img width="800" alt="Visualização do site em um desktop" src="https://github.com/user-attachments/assets/b1f3ec08-467c-45e2-8f5f-b9b7da54e2cf" /> | <img width="250" alt="Visualização do site em um celular" src="https://github.com/user-attachments/assets/1425c9b9-74ec-450c-91dc-093cd16a5039" /> |
 
 ## 🏁 Como Executar
 
@@ -98,11 +96,11 @@ Para executar o projeto localmente, siga os passos abaixo:
 
 1.  Clone o repositório:
     ```sh
-    git clone https://github.com/seu-usuario/nome-do-repositorio.git
+    git clone https://github.com/LeonardoRoeda/portifolio.git
     ```
 2.  Navegue até o diretório do projeto:
     ```sh
-    cd nome-do-repositorio
+    cd portifolio
     ```
 3.  Abra o arquivo `home.html` no seu navegador de preferência.
 
@@ -118,4 +116,7 @@ Outro aprendizado foi a modularização do código JavaScript, garantindo que sc
 
 ## 📧 Contato
 
-Leonardo Roeda - LinkedIn - GitHub
+Leonardo Roeda
+- **Email:** leonardo99.roeda@gmail.com
+- **LinkedIn:** linkedin.com/in/leonardo-roeda
+- **GitHub:** github.com/LeonardoRoeda
