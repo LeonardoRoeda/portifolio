@@ -1,4 +1,4 @@
-zdocument.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   // --- Ativar link de navegação ---
   const navLinks = document.querySelectorAll(".header nav a");
   const currentPage = window.location.pathname.split("/").pop();
