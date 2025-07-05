@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Contact Leonardo Roeda to discuss your project. Get in touch via the contact form."
+    />
+    <title>Contact - Leonardo Roeda</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <a href="home.html" class="logo">Leonardo <span>Roeda</span></a>
+      <nav class="navbar">
+        <a href="home.html">Home</a>
+        <a href="education.html">Education</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </header>
+
+    <section class="contact" id="contact">
+      <h2 class="heading">Contact <span>Me</span></h2>
+      <form action="" id="contactForm" novalidate>
+        <div class="input-group">
+          <div class="input-box">
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              placeholder="Full Name"
+              required
+            />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <input
+              type="tel"
+              id="phoneNumber"
+              name="phoneNumber"
+              placeholder="Phone Number"
+            />
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="Subject"
+              required
+            />
+          </div>
+        </div>
+        <div class="input-group-2">
+          <textarea
+            id="message"
+            name="message"
+            cols="30"
+            rows="10"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <input type="submit" value="Send Message" class="btn" />
+        </div>
+        <div
+          id="form-error"
+          style="color: red; margin-top: 15px; text-align: center"
+        ></div>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/leonardo-roeda/" target="_blank"
+          ><i class="bx bxl-linkedin"></i
+        ></a>
+        <a href="https://www.instagram.com/leonardo_roeda99/" target="_blank"
+          ><i class="bx bxl-instagram-alt"></i
+        ></a>
+        <a href="https://github.com/LeonardoRoeda" target="_blank"
+          ><i class="bx bxl-github"></i
+        ></a>
+      </div>
+      <ul class="list">
+        <li><a href="education.html">Education</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="home.html">About Me</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p class="copyright">© Leonardo Roeda | All Rights Reserved</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
