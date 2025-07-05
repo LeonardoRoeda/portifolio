@@ -1,10 +1,10 @@
-# Portfólio Pessoal - Leonardo Roeda
+# Portfólio Pessoal - Leonardo Antonio Roeda
 
 <img width="1913" height="1075" alt="Image" src="https://github.com/user-attachments/assets/b1f3ec08-467c-45e2-8f5f-b9b7da54e2cf" />
 
-Este é um website de portfólio pessoal desenvolvido como parte da avaliação da disciplina de Programação Front-End. O projeto consiste em um site responsivo e interativo de 4 páginas, construído com HTML5, CSS3 e JavaScript puro, demonstrando a aplicação prática dos conceitos fundamentais do desenvolvimento web.
+Este é um website do meu portfólio pessoal desenvolvido como parte da avaliação da disciplina de Programação Front-End. O projeto consiste em um site responsivo e interativo de 4 páginas, construído com HTML5, CSS3 e JavaScript puro, demonstrando a aplicação prática dos conceitos fundamentais do desenvolvimento web aprendidos na materia de Front-End.
 
-**Visite o site:** [https://github.com/LeonardoRoeda/portifolio]
+**Site do portfólio:** [https://github.com/LeonardoRoeda/portifolio]
 
 ---
 
@@ -22,11 +22,11 @@ Este é um website de portfólio pessoal desenvolvido como parte da avaliação 
 
 ## 📖 Sobre o Projeto
 
-O objetivo foi criar um portfólio digital para apresentar minhas habilidades, formação e projetos como desenvolvedor. O design e a arquitetura foram pensados para serem modernos, limpos e de fácil manutenção futuramente.
+O objetivo foi criar um portfólio digital pessoal para apresentar minhas habilidades, formação e projetos como desenvolvedor. O design e a arquitetura foram pensados para serem modernos, simples e de fácil manutenção futuramente.
 
 ### Design (UI/UX)
 
-- **Tema:** Foi escolhido um tema escuro (_dark mode_) para um visual moderno e confortável para o usuario.
+- **Tema:** Foi escolhido um tema escuro (_dark mode_purple) para um visual moderno e confortável para o usuario.
 - **Paleta de Cores:**
   - Fundo Principal: `#080808`
   - Fundo Secundário: `#131313`
@@ -108,7 +108,7 @@ Para executar o projeto localmente, siga os passos abaixo:
 
 ## 🧠 Desafios e Aprendizados
 
-O maior desafio foi implementar a transição suave entre as páginas sem quebrar a navegação. A solução envolveu o uso de `event.preventDefault()` para capturar o clique, acionar uma animação CSS e, em seguida, usar `setTimeout` para redirecionar o usuário. Isso reforçou a importância de gerenciar eventos e o fluxo de execução assíncrono em JavaScript.
+O maior desafio foi implementar a transição suave entre as páginas sem quebrar a navegação. A solução envolveu o uso de `event.preventDefault()` para capturar o clique, acionar uma animação CSS e, em seguida, usar `setTimeout` para redirecionar o usuário até a page. Isso reforçou a importância de gerenciar eventos e o fluxo de execução assíncrono em JavaScript deixando mais fluido e profissional.
 
 Outro aprendizado foi a modularização do código JavaScript, garantindo que scripts específicos (como a validação do formulário) só fossem executados nas páginas relevantes, evitando erros no console.
 
