@@ -1,4 +1,4 @@
-# Portfólio Pessoal - Leonardo Antonio Roeda
+# Portifólio Pessoal - Leonardo Antonio Roeda
 
 <img width="1913" height="1075" alt="Image" src="https://github.com/user-attachments/assets/b1f3ec08-467c-45e2-8f5f-b9b7da54e2cf" />
 
