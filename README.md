@@ -4,7 +4,7 @@
 
 Este é um website do meu portfólio pessoal desenvolvido como parte da avaliação da disciplina de Programação Front-End. O projeto consiste em um site responsivo e interativo de 4 páginas, construído com HTML5, CSS3 e JavaScript puro, demonstrando a aplicação prática dos conceitos fundamentais do desenvolvimento web aprendidos na materia de Front-End.
 
-**Site do portfólio:** [[https://github.com/LeonardoRoeda/portifolio]](https://leonardoroeda.github.io/portifolio/index.html)
+**link do portifólio:** [[https://github.com/LeonardoRoeda/portifolio]](https://leonardoroeda.github.io/portifolio/index.html)
 
 ---
 
