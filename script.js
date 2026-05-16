@@ -102,6 +102,9 @@ document.addEventListener("DOMContentLoaded", function () {
           .then(function () {
             setTimeout(() => {
               errorDiv.textContent = "";
+              errorDiv.style.background = "none";
+              errorDiv.style.border = "none";
+              errorDiv.style.padding = "0";
             }, 5000);
           });
       }
