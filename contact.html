@@ -28,7 +28,12 @@
     <section class="contact" id="contact">
       <h2 class="heading">Contact <span>Me</span></h2>
       <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" novalidate>
+        <!-- Web3Forms Access Key -->
         <input type="hidden" name="access_key" value="5b8e44cc-1227-4724-a5fe-168841e47bb1">
+        
+        <!-- Spam Protection: Honeypot (Hidden from users) -->
+        <input type="checkbox" name="botcheck" class="h-captcha" style="display: none;">
+
         <div class="input-group">
           <div class="input-box">
             <input
@@ -73,10 +78,8 @@
           ></textarea>
           <input type="submit" value="Send Message" class="btn" />
         </div>
-        <div
-          id="form-error"
-          style="color: red; margin-top: 15px; text-align: center"
-        ></div>
+        <!-- Feedback Message Area -->
+        <div id="form-error"></div>
       </form>
     </section>
 

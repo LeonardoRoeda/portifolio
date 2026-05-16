@@ -80,18 +80,24 @@ document.addEventListener("DOMContentLoaded", function () {
             let res = await response.json();
             if (response.status == 200 || res.success) {
               errorDiv.textContent = "Mensagem enviada com sucesso!";
-              errorDiv.style.color = "green";
+              errorDiv.style.color = "white";
+              errorDiv.style.background = "green";
+              errorDiv.style.border = "2px solid darkgreen";
               contactForm.reset();
             } else {
               console.error("Erro do Web3Forms:", res);
               errorDiv.textContent = res.message || "Erro ao enviar. Verifique a chave de acesso.";
-              errorDiv.style.color = "red";
+              errorDiv.style.color = "white";
+              errorDiv.style.background = "red";
+              errorDiv.style.border = "2px solid darkred";
             }
           })
           .catch((error) => {
             console.log(error);
             errorDiv.textContent = "Algo deu errado. Tente novamente mais tarde.";
-            errorDiv.style.color = "red";
+            errorDiv.style.color = "white";
+            errorDiv.style.background = "red";
+            errorDiv.style.border = "2px solid darkred";
           })
           .then(function () {
             setTimeout(() => {
