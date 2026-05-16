@@ -27,13 +27,14 @@
 
     <section class="contact" id="contact">
       <h2 class="heading">Contact <span>Me</span></h2>
-      <form action="" id="contactForm" novalidate>
+      <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" novalidate>
+        <input type="hidden" name="access_key" value="5b8e44cc-1227-4724-a5fe-168841e47bb1">
         <div class="input-group">
           <div class="input-box">
             <input
               type="text"
               id="fullName"
-              name="fullName"
+              name="name"
               placeholder="Full Name"
               required
             />
@@ -49,7 +50,7 @@
             <input
               type="tel"
               id="phoneNumber"
-              name="phoneNumber"
+              name="phone"
               placeholder="Phone Number"
             />
             <input

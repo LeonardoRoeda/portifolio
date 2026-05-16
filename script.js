@@ -55,10 +55,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (errors.length > 0) {
         errorDiv.textContent = errors.join(" ");
+        errorDiv.style.color = "red";
       } else {
-        errorDiv.textContent = "";
-        alert("Mensagem enviada com sucesso!");
-        contactForm.reset();
+        errorDiv.textContent = "Enviando...";
+        errorDiv.style.color = "orange";
+
+        const formData = new FormData(contactForm);
+        const object = Object.fromEntries(formData);
+        
+        // Garante que o access_key esteja presente e adiciona um título padrão se necessário
+        if (!object.subject) object.subject = "Nova mensagem do Portfólio";
+        
+        const json = JSON.stringify(object);
+
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: json,
+        })
+          .then(async (response) => {
+            let res = await response.json();
+            if (response.status == 200 || res.success) {
+              errorDiv.textContent = "Mensagem enviada com sucesso!";
+              errorDiv.style.color = "green";
+              contactForm.reset();
+            } else {
+              console.error("Erro do Web3Forms:", res);
+              errorDiv.textContent = res.message || "Erro ao enviar. Verifique a chave de acesso.";
+              errorDiv.style.color = "red";
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            errorDiv.textContent = "Algo deu errado. Tente novamente mais tarde.";
+            errorDiv.style.color = "red";
+          })
+          .then(function () {
+            setTimeout(() => {
+              errorDiv.textContent = "";
+            }, 5000);
+          });
       }
     });
   }
