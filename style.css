@@ -717,116 +717,153 @@ input[type="number"] {
   }
 }
 
-/* Breakpoint para tablets e dispositivos menores. */
 @media (max-width: 991px) {
   .header {
     padding: 2rem 3%;
   }
+
   section {
     padding: 10rem 3% 2rem;
   }
-  /* Inverte a ordem da imagem e do texto na seção home para melhor visualização em telas menores. */
+
   .home {
     flex-direction: column-reverse;
     margin: 5rem 0;
   }
+
   .home-content h1 {
-    font-size: 8rem;
+    font-size: 6rem;
   }
-  .home-content h3 {
-    font-size: 2.6rem;
+
+  .home-img img {
+    width: 45vw;
   }
-  .home-content p {
-    max-width: 600px;
-    margin: 0 auto;
+
+  .services-container,
+  .testimonials-box .wrapper,
+  .projects-container {
+    grid-template-columns: 1fr;
   }
-  .home-img {
-    width: 56vw;
-  }
-  .services-container {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .testimonials-box .wrapper {
-    grid-template-columns: repeat(1, 1fr);
-  }
+
   .contact form {
     flex-direction: column;
   }
-  .footer {
-    padding: 2rem 3%;
-  }
 }
 
-/* Breakpoint para celulares. */
 @media (max-width: 895px) {
-  /* Mostra o ícone do menu hambúrguer e esconde a navegação principal. */
   #menu-icon {
     display: block;
   }
+
   .navbar {
     position: absolute;
     top: 100%;
     right: 0;
     width: 50%;
     padding: 1rem 0.8rem;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(20px);
     border-bottom-left-radius: 2rem;
     border-left: 2px solid var(--main-color);
     border-bottom: 2px solid var(--main-color);
     display: none;
   }
-  /* A classe .active (adicionada via JS) torna o menu de navegação visível. */
+
   .navbar.active {
     display: block;
   }
+
   .navbar a {
     display: block;
     font-size: 2rem;
     margin: 3rem 0;
-    color: white;
   }
-  .home {
-    flex-direction: column-reverse;
-    margin: 5rem 0;
-  }
-  .home-content h1 {
-    font-size: 8rem;
-  }
-  .home-content h3 {
-    font-size: 2.6rem;
-  }
-  .home-content p {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  .home-img {
-    width: 56vw;
-  }
-  /* Ajusta a timeline para um layout de coluna única em telas pequenas. */
+
   .timeline-items::before {
     left: 7px;
   }
-  .timeline-item:nth-child(odd) {
-    padding-right: 0;
+
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    padding: 0 0 0 37px;
     text-align: left;
   }
-  .timeline-item:nth-child(even) {
-    padding-left: 37px;
-  }
+
   .timeline-dot {
     left: 0;
   }
-  .services-container {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .testimonials-box .wrapper {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .contact form {
-    flex-direction: column;
-  }
-  .footer {
-    padding: 2rem 3%;
-  }
+}
+
+/* ===== PROJECTS SECTION ===== */
+.projects {
+  background: var(--bg-color);
+  padding: 10rem 12%;
+}
+
+.projects .heading {
+  margin-bottom: 5rem;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  align-items: stretch;
+}
+
+.project-card {
+  background-color: var(--second-bg-color);
+  padding: 3rem 2.5rem;
+  border-radius: 2.5rem;
+  text-align: center;
+  border: 0.2rem solid transparent;
+  transition: 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 0 15px rgba(148, 0, 211, 0.1);
+}
+
+.project-card:hover {
+  border-color: var(--main-color);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 0 25px var(--main-color);
+}
+
+.project-icon {
+  font-size: 5rem;
+  color: var(--main-color);
+  margin-bottom: 2rem;
+}
+
+.project-card h3 {
+  font-size: 2.4rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.project-card p {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: auto;
+}
+
+.tech-stack span {
+  background: var(--bg-color);
+  color: var(--main-color);
+  padding: 0.4rem 1.2rem;
+  border-radius: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 1px solid var(--main-color);
 }
