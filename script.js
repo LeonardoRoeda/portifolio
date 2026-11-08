@@ -1,139 +1,82 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // --- Ativar link de navegação ---
-  const navLinks = document.querySelectorAll(".header nav a");
-  const currentPage = window.location.pathname.split("/").pop();
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('#menu-toggle');
+  const nav = document.querySelector('#site-nav');
+  const topButton = document.querySelector('#backToTop');
 
-  navLinks.forEach((link) => {
-    const linkPage = link.getAttribute("href");
-    if (linkPage === currentPage) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
-    }
+  const closeMenu = () => {
+    nav?.classList.remove('open');
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-label', 'Abrir menu');
+    const icon = toggle?.querySelector('i');
+    icon?.classList.add('bx-menu');
+    icon?.classList.remove('bx-x');
+  };
+
+  toggle?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('open') ?? false;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    toggle.querySelector('i')?.classList.toggle('bx-menu', !open);
+    toggle.querySelector('i')?.classList.toggle('bx-x', open);
   });
 
-  // --- Menu Hambúrguer ---
-  const menuIcon = document.querySelector("#menu-icon");
-  const navbar = document.querySelector(".navbar");
+  nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
 
-  if (menuIcon && navbar) {
-    menuIcon.onclick = () => {
-      menuIcon.classList.toggle("bx-x");
-      navbar.classList.toggle("active");
-    };
-  }
+  const updateTopButton = () => topButton?.classList.toggle('visible', window.scrollY > 500);
+  window.addEventListener('scroll', updateTopButton, { passive: true });
+  updateTopButton();
+  topButton?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  // --- Validação do Formulário de Contato ---
-  const contactForm = document.getElementById("contactForm");
+  const filterButtons = [...document.querySelectorAll('.filter-button')];
+  const projectCards = [...document.querySelectorAll('.project-card[data-category]')];
+  const projectCount = document.querySelector('#project-count');
+  filterButtons.forEach((button) => button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    let visible = 0;
+    filterButtons.forEach((item) => { const selected = item === button; item.classList.toggle('active', selected); item.setAttribute('aria-pressed', String(selected)); });
+    projectCards.forEach((card) => {
+      const show = filter === 'all' || card.dataset.category.split(' ').includes(filter);
+      card.hidden = !show;
+      if (show) visible += 1;
+    });
+    if (projectCount) projectCount.textContent = `${visible} ${visible === 1 ? 'projeto exibido' : 'projetos exibidos'}`;
+  }));
+
+  const contactForm = document.querySelector('.contact-form');
   if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const fullName = document.getElementById("fullName").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const subject = document.getElementById("subject").value.trim();
-      const message = document.getElementById("message").value.trim();
-      const errorDiv = document.getElementById("form-error");
-
-      // Validação mais detalhada
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      let errors = [];
-
-      if (!fullName) {
-        errors.push("O campo 'Nome completo' é obrigatório.");
-      }
-      if (!email) {
-        errors.push("O campo 'Email' é obrigatório.");
-      } else if (!emailPattern.test(email)) {
-        errors.push("Por favor, insira um endereço de email válido.");
-      }
-      if (!subject) {
-        errors.push("O campo 'Assunto' é obrigatório.");
-      }
-      if (!message) {
-        errors.push("O campo 'Sua Mensagem' é obrigatório.");
-      }
-
-      if (errors.length > 0) {
-        errorDiv.textContent = errors.join(" ");
-        errorDiv.style.color = "red";
-      } else {
-        errorDiv.textContent = "Enviando...";
-        errorDiv.style.color = "orange";
-
-        const formData = new FormData(contactForm);
-        const object = Object.fromEntries(formData);
-        
-        // Garante que o access_key esteja presente e adiciona um título padrão se necessário
-        if (!object.subject) object.subject = "Nova mensagem do Portfólio";
-        
-        const json = JSON.stringify(object);
-
-        fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: json,
-        })
-          .then(async (response) => {
-            let res = await response.json();
-            if (response.status == 200 || res.success) {
-              errorDiv.textContent = "Mensagem enviada com sucesso!";
-              errorDiv.style.color = "white";
-              errorDiv.style.background = "green";
-              errorDiv.style.border = "2px solid darkgreen";
-              contactForm.reset();
-            } else {
-              console.error("Erro do Web3Forms:", res);
-              errorDiv.textContent = res.message || "Erro ao enviar. Verifique a chave de acesso.";
-              errorDiv.style.color = "white";
-              errorDiv.style.background = "red";
-              errorDiv.style.border = "2px solid darkred";
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-            errorDiv.textContent = "Algo deu errado. Tente novamente mais tarde.";
-            errorDiv.style.color = "white";
-            errorDiv.style.background = "red";
-            errorDiv.style.border = "2px solid darkred";
-          })
-          .then(function () {
-            setTimeout(() => {
-              errorDiv.textContent = "";
-              errorDiv.style.background = "none";
-              errorDiv.style.border = "none";
-              errorDiv.style.padding = "0";
-            }, 5000);
-          });
+    const status = document.createElement('p');
+    status.className = 'form-status';
+    status.setAttribute('aria-live', 'polite');
+    contactForm.append(status);
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const submit = contactForm.querySelector('button[type="submit"]');
+      if (submit) { submit.disabled = true; submit.dataset.originalText = submit.textContent; submit.textContent = 'Enviando…'; }
+      status.textContent = 'Enviando sua mensagem…';
+      status.className = 'form-status is-loading';
+      try {
+        const response = await fetch(contactForm.action, { method: 'POST', body: new FormData(contactForm), headers: { Accept: 'application/json' } });
+        if (!response.ok) throw new Error('request-failed');
+        contactForm.reset();
+        status.textContent = 'Mensagem enviada. Obrigado pelo contato!';
+        status.className = 'form-status is-success';
+      } catch {
+        status.textContent = 'Não foi possível enviar agora. Tente novamente ou use o e-mail direto.';
+        status.className = 'form-status is-error';
+      } finally {
+        if (submit) { submit.disabled = false; submit.textContent = submit.dataset.originalText; }
       }
     });
   }
 
-  // --- Lógica para transição de página ---
-  const body = document.body;
-  const pageLinks = document.querySelectorAll(
-    'a:not([target="_blank"]):not([href^="#"])'
-  );
-
-  pageLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      const destination = this.href;
-
-      // Não animar se o link for para a página atual
-      if (destination === window.location.href) {
-        e.preventDefault();
-        return;
-      }
-
-      e.preventDefault(); // Previne a navegação imediata
-      body.classList.add("page-exit"); // Adiciona a classe para a animação de saída
-
-      // Espera a animação terminar e então navega para o destino
-      setTimeout(() => {
-        window.location.href = destination;
-      }, 500); // Duração deve ser a mesma da transição no CSS
-    });
-  });
+  const sections = [...document.querySelectorAll('main section[id]')];
+  const links = [...document.querySelectorAll('.site-nav a[href^="#"]')];
+  if (sections.length && links.length && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      links.forEach((link) => { const selected = link.getAttribute('href') === `#${entry.target.id}`; link.classList.toggle('active', selected); link.setAttribute('aria-current', selected ? 'page' : 'false'); });
+    }), { rootMargin: '-35% 0px -55% 0px' });
+    sections.forEach((section) => observer.observe(section));
+  }
 });
