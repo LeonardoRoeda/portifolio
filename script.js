@@ -31,6 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const filterButtons = [...document.querySelectorAll('.filter-button')];
   const projectCards = [...document.querySelectorAll('.project-card[data-category]')];
   const projectCount = document.querySelector('#project-count');
+  document.querySelectorAll('.project-card .text-link').forEach((link) => {
+    if (link.textContent.includes('Explorar no GitHub')) link.firstChild.textContent = 'Ver projeto no GitHub ';
+  });
   filterButtons.forEach((button) => button.addEventListener('click', () => {
     const filter = button.dataset.filter;
     let visible = 0;
